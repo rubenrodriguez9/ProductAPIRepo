@@ -16,9 +16,68 @@
 		},
 		{
 			"name": "ID requests",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"value of Id to be 1\", function(){\r",
+							"pm.expect(1).to.equal(jsonData.Id)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"value of Nmae to be Tomato Soup\", function(){\r",
+							"pm.expect(\"Tomato Soup\").to.equal(jsonData.Name)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"value of Price to be 1.0\", function(){\r",
+							"pm.expect(1.0).to.equal(jsonData.Price)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"value of Category to be Groceries\", function(){\r",
+							"pm.expect(\"Groceries\").to.equal(jsonData.Category)\r",
+							"})\r",
+							"\r",
+							"////////\r",
+							"\r",
+							"pm.test(\"response to have an Id\", function(){\r",
+							"pm.response.to.have.jsonBody(\"Id\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response to have a Name\", function(){\r",
+							"pm.response.to.have.jsonBody(\"Name\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response to have a Price\", function(){\r",
+							"pm.response.to.have.jsonBody(\"Price\")\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response to have a Category\", function(){\r",
+							"pm.response.to.have.jsonBody(\"Category\")\r",
+							"})\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44373/api/product/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44373",
+					"path": [
+						"api",
+						"product",
+						"1"
+					]
+				}
 			},
 			"response": []
 		}
