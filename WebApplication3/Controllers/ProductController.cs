@@ -31,10 +31,7 @@ namespace WebApplication3.Controllers
             return products;
         }
 
-        public async Task<IEnumerable<Product>> GetAllProductsAsync()
-        {
-            return await Task.FromResult(GetAllProducts());
-        }
+      
 
         public IHttpActionResult GetProduct(int id)
         {
@@ -46,9 +43,6 @@ namespace WebApplication3.Controllers
             return Ok(product);
         }
 
-        public async Task<IHttpActionResult> GetProductAsync(int id)
-        {
-            return await Task.FromResult(GetProduct(id));
-        }
+        
     }
 }
